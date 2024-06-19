@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://838hnpsj15k7" path="res://icon.svg" id="1_virqd"]
 [ext_resource type="Script" path="res://Area2D.gd" id="2_knq7w"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ldn2k"]
-size = Vector2(26, 5)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bjj51"]
+size = Vector2(131.024, 128)
 
 [node name="Bullets" type="Node2D"]
 
@@ -13,11 +13,11 @@ position = Vector2(26, 11.5)
 scale = Vector2(0.198437, 0.0390625)
 texture = ExtResource("1_virqd")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(26, 11.5)
-shape = SubResource("RectangleShape2D_ldn2k")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D"]
+shape = SubResource("RectangleShape2D_bjj51")
 
 [node name="Area2D" type="Area2D" parent="."]
+position = Vector2(26, 12)
 script = ExtResource("2_knq7w")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
