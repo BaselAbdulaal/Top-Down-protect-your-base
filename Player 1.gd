@@ -4,6 +4,7 @@ var movespeed = 500
 var bullet_speed = 2000
 var bullet = preload("res://bullet.tscn")
 var input_direction = Vector2()
+@export var Bullet : PackedScene
 
 func _ready():
 	pass
@@ -27,13 +28,11 @@ func _physics_process(_delta):
 	if Input.is_action_just_pressed("Shoot"):
 		fire()
 	
+	
 func fire():
-	var bullet_instance = bullet.instance()
+	var bullet_instance = bullet.instantiate()
 	bullet_instance.position = get_global_mouse_position()
-	bullet_instance.roation_degrees = rotation_degrees
-	bullet_instance.apply_impulsive(Vector2(),Vector2(bullet_speed,0).rotated(rotation))
+	bullet_instance.rotation_degrees = get_rotation()
+	bullet_instance.apply_impulse(Vector2(), Vector2(bullet_speed, 0).rotated(rotation))
 	get_tree().get_root().call_deferred("add_child", bullet_instance)
-	
-	
-	
-	
+
