@@ -33,6 +33,6 @@ func fire():
 	var bullet_instance = bullet.instantiate()
 	bullet_instance.position = get_global_mouse_position()
 	bullet_instance.rotation_degrees = get_rotation()
-	bullet_instance.apply_impulse(Vector2(), Vector2(bullet_speed, 0).rotated(rotation))
+	bullet_instance.apply_impulse(Vector2(bullet_speed, 0).rotated(rotation))
 	get_tree().get_root().call_deferred("add_child", bullet_instance)
 
