@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://r582t2af5ivq"]
+
+[ext_resource type="Script" path="res://projectile.gd" id="1_lxd6s"]
+[ext_resource type="Texture2D" uid="uid://dldcmomw4vlkd" path="res://kenney_pixel-shmup/Tiles/tile_0012.png" id="2_luyq1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0wis5"]
+size = Vector2(4, 6)
+
+[node name="projectile" type="CharacterBody2D"]
+script = ExtResource("1_lxd6s")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_luyq1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_0wis5")

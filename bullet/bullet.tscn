@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://coowmime3q83s"]
+
+[ext_resource type="Script" path="res://bullet/bullet.gd" id="1_dwqpy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qfquv"]
+size = Vector2(1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_464mg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k176c"]
+albedo_color = Color(1, 1, 0, 1)
+emission_enabled = true
+emission = Color(0, 1, 0, 1)
+emission_energy_multiplier = 16.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_crb6j"]
+material = SubResource("StandardMaterial3D_k176c")
+size = Vector3(0.5, 0.5, 1)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_dwqpy")
+
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(4.75, 2.1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1, 0)
+scale = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_qfquv")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Area2D"]
+modulate = Color(1, 1, 0, 1)
+material = SubResource("ShaderMaterial_464mg")
+position = Vector2(1, 0)
+mesh = SubResource("BoxMesh_crb6j")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(5.79, 0)
+scale = Vector2(0.01, 0.66)
+target_position = Vector2(90, 0)
