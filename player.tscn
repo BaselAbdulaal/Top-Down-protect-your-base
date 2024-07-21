@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://dwkt6sule6odb"]
+
+[ext_resource type="Script" path="res://Player 1.gd" id="1_6710v"]
+[ext_resource type="Texture2D" uid="uid://bu16rduyfc658" path="res://kenney_pixel-shmup/Ships/ship_0005.png" id="2_m7xl1"]
+[ext_resource type="PackedScene" uid="uid://r582t2af5ivq" path="res://bullet/projectile.tscn" id="2_se5kv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w32qn"]
+size = Vector2(30, 20)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("1_6710v")
+Bullet = ExtResource("2_se5kv")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+scale = Vector2(2, 2)
+texture = ExtResource("2_m7xl1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("RectangleShape2D_w32qn")

@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 var movespeed = 500
 var bullet_speed = 2000
-var bullet = preload("res://bullet.tscn")
+var bullet = preload("res://projectile.gd")
 var input_direction = Vector2()
 @export var Bullet : PackedScene
 
