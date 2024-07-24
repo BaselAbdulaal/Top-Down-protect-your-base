@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://838hnpsj15k7" path="res://icon.svg" id="2_hiw3f"]
 [ext_resource type="Script" path="res://gun.gd" id="3_4shss"]
 [ext_resource type="Texture2D" uid="uid://b385hm5aj28nc" path="res://kenney_pixel-shmup/Ships/ship_0017.png" id="4_r1g4p"]
-[ext_resource type="PackedScene" uid="uid://r582t2af5ivq" path="res://bullet/projectile.tscn" id="5_j6o04"]
+[ext_resource type="PackedScene" uid="uid://r582t2af5ivq" path="res://projectile.tscn" id="5_j6o04"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qrslv"]
 size = Vector2(8.5, 8)

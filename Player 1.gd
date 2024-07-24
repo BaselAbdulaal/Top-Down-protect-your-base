@@ -30,9 +30,11 @@ func _physics_process(_delta):
 	
 	
 func fire():
-	var bullet_instance = bullet.instantiate()
-	bullet_instance.position = get_global_mouse_position()
-	bullet_instance.rotation_degrees = get_rotation()
-	bullet_instance.apply_impulse(Vector2(bullet_speed, 0).rotated(rotation))
+	var bullet_instance = Bullet.instantiate()
+	print(get_global_position())
+	bullet_instance.global_position = get_global_position()
+	bullet_instance.dir = get_rotation()+1.5708
+	#bullet_instance.apply_impulse(Vector2(bullet_speed, 0).rotated(rotation))
 	get_tree().get_root().call_deferred("add_child", bullet_instance)
+	print(bullet_instance.get_global_position())
 

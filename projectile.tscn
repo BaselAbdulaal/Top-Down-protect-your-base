@@ -6,11 +6,11 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0wis5"]
 size = Vector2(4, 6)
 
-[node name="projectile" type="CharacterBody2D"]
+[node name="projectile" type="Area2D"]
 script = ExtResource("1_lxd6s")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
+scale = Vector2(5, 5)
 texture = ExtResource("2_luyq1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
