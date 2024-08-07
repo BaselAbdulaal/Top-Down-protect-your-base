@@ -1,18 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://dwkt6sule6odb"]
+[gd_scene load_steps=5 format=3 uid="uid://dwkt6sule6odb"]
 
 [ext_resource type="Script" path="res://Player 1.gd" id="1_6710v"]
 [ext_resource type="PackedScene" uid="uid://r582t2af5ivq" path="res://projectile.tscn" id="2_se5kv"]
 [ext_resource type="Texture2D" uid="uid://biy7obqn2beoq" path="res://bullet/Gun.png" id="3_kfade"]
+[ext_resource type="PackedScene" uid="uid://degu2j8najg48" path="res://enime.tscn" id="4_3oyfc"]
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(515, 293)
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="player" type="CharacterBody2D" parent="."]
 script = ExtResource("1_6710v")
 Bullet = ExtResource("2_se5kv")
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+[node name="Sprite2D" type="Sprite2D" parent="player"]
 position = Vector2(-60, 4)
 rotation = -6.28319
 scale = Vector2(2, 2)
 texture = ExtResource("3_kfade")
+
+[node name="enime" parent="." instance=ExtResource("4_3oyfc")]
+position = Vector2(44, -3)
+collision_layer = 3
