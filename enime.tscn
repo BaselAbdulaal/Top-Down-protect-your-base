@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://degu2j8najg48"]
+
+[ext_resource type="Script" path="res://enine.gd" id="1_35vcp"]
+[ext_resource type="Texture2D" uid="uid://jg75vx2qlx5n" path="res://bullet/Enemy.png" id="2_1lfhf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ph1l1"]
+size = Vector2(44, 40)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f6xjv"]
+radius = 105.171
+
+[node name="enime" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_35vcp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ph1l1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_1lfhf")
+
+[node name="dectionarea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="dectionarea"]
+shape = SubResource("CircleShape2D_f6xjv")
+
+[connection signal="body_entered" from="dectionarea" to="." method="_on_dectionarea_body_entered"]
+[connection signal="body_exited" from="dectionarea" to="." method="_on_dectionarea_body_exited"]

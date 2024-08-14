@@ -13,7 +13,7 @@ script = ExtResource("1_6710v")
 Bullet = ExtResource("2_se5kv")
 
 [node name="Sprite2D" type="Sprite2D" parent="player"]
-position = Vector2(-60, 4)
+position = Vector2(-32, 21)
 rotation = -6.28319
 scale = Vector2(2, 2)
 texture = ExtResource("3_kfade")
