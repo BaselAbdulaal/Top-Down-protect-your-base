@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Player 1.gd" id="1_6710v"]
 [ext_resource type="PackedScene" uid="uid://r582t2af5ivq" path="res://projectile.tscn" id="2_se5kv"]
-[ext_resource type="Texture2D" uid="uid://biy7obqn2beoq" path="res://bullet/Gun.png" id="3_kfade"]
+[ext_resource type="Texture2D" uid="uid://biuk8jadiff42" path="res://bullet/5dljCJ.png" id="3_cgw68"]
 [ext_resource type="PackedScene" uid="uid://dmm677hmbi6jn" path="res://path.finding.tscn" id="4_ggjqv"]
 
 [node name="Node2D" type="Node2D"]
@@ -13,10 +13,10 @@ script = ExtResource("1_6710v")
 Bullet = ExtResource("2_se5kv")
 
 [node name="Sprite2D" type="Sprite2D" parent="player"]
-position = Vector2(-32, 21)
+position = Vector2(-11, -1)
 rotation = -6.28319
 scale = Vector2(2, 2)
-texture = ExtResource("3_kfade")
+texture = ExtResource("3_cgw68")
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 

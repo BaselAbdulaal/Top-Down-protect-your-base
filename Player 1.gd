@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var movespeed = 500
+var movespeed = 200
 var bullet_speed = 2000
 var bullet = preload("res://projectile.gd")
 var input_direction = Vector2()
