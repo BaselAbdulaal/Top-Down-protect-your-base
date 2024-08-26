@@ -11,3 +11,4 @@ func _ready():
 	pass
 	
 func _enemy_setup():
+	pass
