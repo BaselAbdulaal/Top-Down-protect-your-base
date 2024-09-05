@@ -26,6 +26,7 @@ func _physics_process(_delta):
 	move_and_slide()  # Move and slide with the calculated velocity
 	look_at(get_global_mouse_position())
 	if Input.is_action_just_pressed("Shoot"):
+		
 		fire()
 	
 	
