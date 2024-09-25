@@ -1,10 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://dwkt6sule6odb"]
+[gd_scene load_steps=14 format=3 uid="uid://dwkt6sule6odb"]
 
 [ext_resource type="Script" path="res://Player 1.gd" id="1_6710v"]
 [ext_resource type="PackedScene" uid="uid://r582t2af5ivq" path="res://projectile.tscn" id="2_se5kv"]
 [ext_resource type="Texture2D" uid="uid://biuk8jadiff42" path="res://bullet/5dljCJ.png" id="3_cgw68"]
-[ext_resource type="PackedScene" uid="uid://dmm677hmbi6jn" path="res://path.finding.tscn" id="4_ggjqv"]
-[ext_resource type="Script" path="res://NavigationAgent2D2.gd" id="5_mblps"]
 
 [sub_resource type="Curve" id="Curve_hph7s"]
 _data = [Vector2(0.0333333, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.098901), 0.0, 0.0, 0, 0]
@@ -84,15 +82,15 @@ scale = Vector2(1.5, 1.5)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="player"]
 scale = Vector2(1.5, 1.5)
+emitting = false
 amount = 75
 process_material = SubResource("ParticleProcessMaterial_fyx2i")
 lifetime = 2.0
 explosiveness = 1.0
 fixed_fps = 1000
 
-[node name="Enemy1" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_ggjqv")]
-position = Vector2(611, 334)
-player = NodePath(".")
+[node name="Timer" type="Timer" parent="player"]
+wait_time = 2.387
+autostart = true
 
-[node name="NavigationAgent2D2" type="NavigationAgent2D" parent="Enemy1"]
-script = ExtResource("5_mblps")
+[connection signal="timeout" from="player/Timer" to="player" method="_on_timer_timeout"]

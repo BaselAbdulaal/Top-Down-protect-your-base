@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3260pcd4bnds"]
+
+[ext_resource type="Script" path="res://BackTomenu.gd" id="1_iufdp"]
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextEdit" type="TextEdit" parent="."]
+layout_mode = 0
+offset_top = 1.0
+offset_right = 1153.0
+offset_bottom = 648.0
+text = "Everything  - Basel
+(And some tutorials)
+And my sponser Raid shadow legends"
+
+[node name="BackToMenu" type="Button" parent="."]
+layout_mode = 0
+offset_left = 250.0
+offset_top = 155.0
+offset_right = 402.0
+offset_bottom = 220.0
+text = "Back To menu"
+script = ExtResource("1_iufdp")
