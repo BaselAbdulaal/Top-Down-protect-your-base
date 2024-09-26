@@ -1,8 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://dwkt6sule6odb"]
+[gd_scene load_steps=17 format=3 uid="uid://dwkt6sule6odb"]
 
+[ext_resource type="PackedScene" uid="uid://dmm677hmbi6jn" path="res://path.finding.tscn" id="1_8pkq6"]
 [ext_resource type="Script" path="res://Player 1.gd" id="1_6710v"]
 [ext_resource type="PackedScene" uid="uid://r582t2af5ivq" path="res://projectile.tscn" id="2_se5kv"]
 [ext_resource type="Texture2D" uid="uid://biuk8jadiff42" path="res://bullet/5dljCJ.png" id="3_cgw68"]
+[ext_resource type="Script" path="res://Health bar.gd" id="5_veibs"]
 
 [sub_resource type="Curve" id="Curve_hph7s"]
 _data = [Vector2(0.0333333, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.098901), 0.0, 0.0, 0, 0]
@@ -69,6 +71,8 @@ size = Vector2(44.2222, 18.2222)
 position = Vector2(515, 293)
 scale = Vector2(1.5, 1.5)
 
+[node name="Enemy1" parent="." instance=ExtResource("1_8pkq6")]
+
 [node name="player" type="CharacterBody2D" parent="."]
 position = Vector2(-320, -120)
 scale = Vector2(1.5, 1.5)
@@ -82,6 +86,7 @@ position = Vector2(-11, -1)
 rotation = -6.28319
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("3_cgw68")
+script = ExtResource("5_veibs")
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 scale = Vector2(1.5, 1.5)
@@ -110,8 +115,14 @@ offset_top = 12.8889
 offset_right = 79.5556
 offset_bottom = 47.8889
 scale = Vector2(0.2, 0.2)
+fill_mode = 1
 show_percentage = false
 
 [node name="Regen" type="Timer" parent="player"]
 
+[node name="projectile" parent="player" instance=ExtResource("2_se5kv")]
+position = Vector2(-11, -1)
+scale = Vector2(1.5, 1.5)
+
 [connection signal="timeout" from="player/Timer" to="player" method="_on_timer_timeout"]
+[connection signal="body_entered" from="player/projectile" to="Enemy1" method="_on_projectile_body_entered"]

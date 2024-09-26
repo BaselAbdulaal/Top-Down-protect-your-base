@@ -6,6 +6,7 @@ var bullet_speed = 2000
 var bullet = preload("res://projectile.gd")
 var input_direction = Vector2()
 @export var Bullet : PackedScene
+var enemy_health = 5
 
 func _ready():
 	pass
@@ -49,3 +50,7 @@ func fire():
 func _on_timer_timeout():
 	$Timer.stop()
 	can_shoot = true
+
+
+func _on_projectile_body_entered(body):
+	pass
