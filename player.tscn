@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dwkt6sule6odb"]
+[gd_scene load_steps=15 format=3 uid="uid://dwkt6sule6odb"]
 
 [ext_resource type="Script" path="res://Player 1.gd" id="1_6710v"]
 [ext_resource type="PackedScene" uid="uid://r582t2af5ivq" path="res://projectile.tscn" id="2_se5kv"]
@@ -62,12 +62,18 @@ turbulence_noise_strength = 0.0
 turbulence_noise_scale = 1.0
 turbulence_influence_max = 1.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bfwvj"]
+size = Vector2(44.2222, 18.2222)
+
 [node name="Node2D" type="Node2D"]
 position = Vector2(515, 293)
 scale = Vector2(1.5, 1.5)
 
 [node name="player" type="CharacterBody2D" parent="."]
+position = Vector2(-320, -120)
 scale = Vector2(1.5, 1.5)
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_6710v")
 Bullet = ExtResource("2_se5kv")
 
@@ -92,5 +98,20 @@ fixed_fps = 1000
 [node name="Timer" type="Timer" parent="player"]
 wait_time = 2.387
 autostart = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
+position = Vector2(-12.1111, 2.44445)
+shape = SubResource("RectangleShape2D_bfwvj")
+
+[node name="Health bar" type="ProgressBar" parent="player"]
+modulate = Color(1, 0, 0, 1)
+offset_left = -20.4444
+offset_top = 12.8889
+offset_right = 79.5556
+offset_bottom = 47.8889
+scale = Vector2(0.2, 0.2)
+show_percentage = false
+
+[node name="Regen" type="Timer" parent="player"]
 
 [connection signal="timeout" from="player/Timer" to="player" method="_on_timer_timeout"]

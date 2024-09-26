@@ -4,13 +4,12 @@
 [ext_resource type="Texture2D" uid="uid://dldcmomw4vlkd" path="res://kenney_pixel-shmup/Tiles/tile_0012.png" id="2_luyq1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0wis5"]
-size = Vector2(16, 24)
+size = Vector2(8, 12)
 
 [node name="projectile" type="Area2D"]
 script = ExtResource("1_lxd6s")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(2, 2)
 texture = ExtResource("2_luyq1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

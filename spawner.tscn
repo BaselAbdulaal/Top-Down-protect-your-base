@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhm4vgxkrr85o"]
+
+[ext_resource type="Script" path="res://Spawner.gd" id="1_gikex"]
+[ext_resource type="Texture2D" uid="uid://cl6gnv2ve3s4k" path="res://kenney_pixel-shmup/Tiles/tile_0084.png" id="2_l3ji6"]
+
+[node name="Spawner" type="Node2D"]
+script = ExtResource("1_gikex")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(17, 17)
+scale = Vector2(3.125, 3.125)
+texture = ExtResource("2_l3ji6")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

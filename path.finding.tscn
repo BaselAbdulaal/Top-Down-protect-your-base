@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://dmm677hmbi6jn"]
+[gd_scene load_steps=5 format=3 uid="uid://dmm677hmbi6jn"]
 
 [ext_resource type="Texture2D" uid="uid://bfrmdaph8vomy" path="res://bullet/Enemy1.png" id="1_16sfw"]
 [ext_resource type="Script" path="res://enemy1walking.gd" id="1_g27x1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xise6"]
 radius = 20.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xodpl"]
+radius = 285.028
 
 [node name="Enemy1" type="CharacterBody2D"]
 script = ExtResource("1_g27x1")
@@ -16,8 +19,13 @@ texture = ExtResource("1_16sfw")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_xise6")
 
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-debug_enabled = true
+[node name="Detection" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.5
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detection"]
+position = Vector2(0, 19)
+shape = SubResource("CircleShape2D_xodpl")
+
+[connection signal="body_entered" from="Detection" to="." method="_on_detection_body_entered"]
+[connection signal="body_exited" from="Detection" to="." method="_on_detection_body_exited"]
