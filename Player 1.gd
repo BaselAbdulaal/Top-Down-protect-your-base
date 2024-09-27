@@ -1,15 +1,16 @@
 extends CharacterBody2D
 
 var can_shoot = true
-var movespeed = 200
+var movespeed = 500
 var bullet_speed = 2000
+var health = 100
+var max_health = 100
+@onready var health_bar: ProgressBar = $HealthBar  # Adjust path if needed
 
 var input_direction = Vector2()
 @export var Bullet : PackedScene
 var enemy_health = 5
 
-func _ready():
-	pass
 
 func _physics_process(_delta):
 	input_direction = Vector2()  # Reset input direction each frame
@@ -47,9 +48,22 @@ func fire():
 	get_tree().get_root().call_deferred("add_child", bullet_instance)
 	print(bullet_instance.get_global_position())
 	
-	
+func _ready():
+	add_to_group("players")  # Add to 'players' group
+	#health_bar.max_value = max_health
+	#health_bar.value = health
 
-	
+func take_damage(amount: int):
+	health -= amount
+	health_bar.value = health  # Update health bar
+	print("Player Health: ", health)
+	if health <= 0:
+		die()  # Call die method when health is zero or less
+
+func die():
+	queue_free()  # Remove the player or trigger game over
+	print("Player has died.")
+
 func _on_timer_timeout():
 	$Timer.stop()
 	can_shoot = true

@@ -108,16 +108,4 @@ autostart = true
 position = Vector2(-12.1111, 2.44445)
 shape = SubResource("RectangleShape2D_bfwvj")
 
-[node name="Health bar" type="ProgressBar" parent="player"]
-modulate = Color(1, 0, 0, 1)
-offset_left = -23.5556
-offset_top = 12.4444
-offset_right = 76.4444
-offset_bottom = 47.4444
-scale = Vector2(0.2, 0.2)
-fill_mode = 1
-show_percentage = false
-
-[node name="Regen" type="Timer" parent="player"]
-
 [connection signal="timeout" from="player/Timer" to="player" method="_on_timer_timeout"]
