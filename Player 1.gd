@@ -3,7 +3,7 @@ extends CharacterBody2D
 var can_shoot = true
 var movespeed = 200
 var bullet_speed = 2000
-var bullet = preload("res://projectile.gd")
+
 var input_direction = Vector2()
 @export var Bullet : PackedScene
 var enemy_health = 5
@@ -46,6 +46,9 @@ func fire():
 	#bullet_instance.apply_impulse(Vector2(bullet_speed, 0).rotated(rotation))
 	get_tree().get_root().call_deferred("add_child", bullet_instance)
 	print(bullet_instance.get_global_position())
+	
+	
+
 	
 func _on_timer_timeout():
 	$Timer.stop()

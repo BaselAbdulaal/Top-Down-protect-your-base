@@ -110,19 +110,14 @@ shape = SubResource("RectangleShape2D_bfwvj")
 
 [node name="Health bar" type="ProgressBar" parent="player"]
 modulate = Color(1, 0, 0, 1)
-offset_left = -20.4444
-offset_top = 12.8889
-offset_right = 79.5556
-offset_bottom = 47.8889
+offset_left = -23.5556
+offset_top = 12.4444
+offset_right = 76.4444
+offset_bottom = 47.4444
 scale = Vector2(0.2, 0.2)
 fill_mode = 1
 show_percentage = false
 
 [node name="Regen" type="Timer" parent="player"]
 
-[node name="projectile" parent="player" instance=ExtResource("2_se5kv")]
-position = Vector2(-11, -1)
-scale = Vector2(1.5, 1.5)
-
 [connection signal="timeout" from="player/Timer" to="player" method="_on_timer_timeout"]
-[connection signal="body_entered" from="player/projectile" to="Enemy1" method="_on_projectile_body_entered"]

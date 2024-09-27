@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+var health: int = 100
 var speed = 100
 var player_chase = false
 var player  = null
@@ -21,5 +22,17 @@ func _on_detection_body_exited(body):
 	player_chase = false
 
 
-func _on_projectile_body_entered(body):
-	enemy_health -= 1
+ #Called when the node enters the scene tree for the first time
+func _ready() -> void:
+	add_to_group("enemies")  # Add to the "enemies" group for collision detection
+
+# Function to take damage
+func take_damage(amount: int) -> void:
+	health -= amount
+	print("getting hit")
+	if health <= 0:
+		die()
+
+# Handle enemy death
+func die() -> void:
+	queue_free()  # Remove the enemy from the scene
