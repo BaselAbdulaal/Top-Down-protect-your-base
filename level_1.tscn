@@ -154,19 +154,19 @@ layer_0/tile_data = PackedInt32Array(4521895, 65536, 4, 4587431, 65536, 4, 46529
 [node name="Player" parent="." instance=ExtResource("1_f8h0w")]
 
 [node name="Spawner2" parent="." instance=ExtResource("1_6ptf3")]
-position = Vector2(4244, 2798)
+position = Vector2(393, -71)
 
 [node name="Spawner4" parent="." instance=ExtResource("1_6ptf3")]
-position = Vector2(4043, -1314)
+position = Vector2(147, 90)
 
 [node name="Spawner5" parent="." instance=ExtResource("1_6ptf3")]
-position = Vector2(-5190, 2254)
+position = Vector2(-191, 427)
 
 [node name="Spawner6" parent="." instance=ExtResource("1_6ptf3")]
-position = Vector2(-5453, -1464)
+position = Vector2(-364, 76)
 
 [node name="Spawner7" parent="." instance=ExtResource("1_6ptf3")]
-position = Vector2(11, 2859)
+position = Vector2(177, 488)
 
 [node name="Spawner8" parent="." instance=ExtResource("1_6ptf3")]
-position = Vector2(-352, -1778)
+position = Vector2(71, -222)
